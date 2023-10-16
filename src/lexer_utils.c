@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 01:50:58 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/23 01:44:07 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:33:54 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ void	set_other_other(char *data, char *str, int *j, int i)
 	int	tmp;
 
 	tmp = *j;
-	if (str && ((*str && str[i - 1] && str[i -2])
+	if (str && ((*str && str[i - 1] && str[i - 2])
 			&& (((str[i - 2] == '>' && str[i - 1] == '>')
 					|| (str[i - 1] == '>' && str[i] != '>')) && str[i] != 2)))
 	{
 		data[tmp] = 2;
 		*j += 1;
 	}
-	else if (str && ((str[i] == '<' && str[i + 1] == '<') || ((str[i] == '<'
-					&& str[i - 1] != '<') && str[i - 1] != 2)))
+	else if (str && str[i + 1] && ((str[i] == '<' && str[i + 1] == '<')
+			|| ((str[i] == '<' && str[i - 1] != '<') && str[i - 1] != 2)))
 	{
 		data[tmp] = 2;
 		*j += 1;
@@ -63,8 +63,9 @@ void	set_other(char *data, char *str, int *j, int i)
 	tmp = *j;
 	if (i >= 1)
 	{
-		if (str && (((str[i] == '>' && str[i + 1] == '>') || (str[i] == '>'
-						&& str[i - 1] != '>')) && str[i - 1] != 2))
+		if (str && str[i + 1] && (((str[i] == '>' && str[i + 1] == '>')
+					|| (str[i] == '>' && str[i - 1] != '>'))
+				&& str[i - 1] != 2))
 		{
 			data[tmp] = 2;
 			*j += 1;

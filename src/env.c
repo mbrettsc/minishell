@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:29:16 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 00:58:24 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:30:06 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	env_get(char **env, t_shell **shell)
 
 	free((*shell)->env);
 	(*shell)->env = NULL;
-	while (*env) 
+	while (*env)
 	{
 		a = malloc(sizeof(t_env));
 		str = ft_split(*env, '=');

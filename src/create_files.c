@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_files.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 17:31:17 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 01:04:32 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 14:54:32 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*ft_strjoin2(char *s1, const char *s2)
 	return (str);
 }
 
-void	create_out_files(t_parse *data3, t_list *tmp3)
+void	create_out_files(t_parse *data3, t_list *tmp3, t_parse *tmp1)
 {
 	t_parse	*data;
 	t_list	*tmp;
@@ -110,7 +110,10 @@ void	create_out_files(t_parse *data3, t_list *tmp3)
 		data->fd = open(pwd, O_CREAT | O_RDWR | O_APPEND, 0777);
 	else if (data3->type == 3)
 		data->fd = open(pwd, O_CREAT | O_RDWR | O_TRUNC, 0777);
-	data3->outfile = data->fd;
+	if (data3->cmd)
+		data3->outfile = data->fd;
+	else if (tmp1->cmd)
+		tmp1->outfile = data->fd;
 	if (pwd)
 		free(pwd);
 }
@@ -119,6 +122,7 @@ int	create_files(void)
 {
 	t_parse	*data;
 	t_list	*tmp;
+	t_parse	*tmp1;
 	int		i;
 
 	i = 1;
@@ -126,8 +130,10 @@ int	create_files(void)
 	while (tmp)
 	{
 		data = tmp->content;
+		if (data->cmd)
+			tmp1 = data;
 		if (data->type == 3 || data->type == 4)
-			create_out_files(data, tmp);
+			create_out_files(data, tmp, tmp1);
 		else if (data->type == 5)
 			i = create_in_files(data, tmp);
 		tmp = tmp->next;

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 21:35:57 by mbrettsc          #+#    #+#             */
-/*   Updated: 2023/07/20 01:11:13 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:37:35 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int	is_valid_other(char *a, char *b)
 {
@@ -42,22 +43,20 @@ int	is_valid_other(char *a, char *b)
 	return (1);
 }
 
-int	cmd_is_valid(t_lexer *lex_list)
+int	cmd_is_valid(t_lexer *lex_list, char *a, char *b)
 {
 	t_list	*tmp;
-	char	*a;
-	char	*b;
 	int		i;
 
 	i = 0;
-	b = NULL;
-	a = NULL;
 	tmp = lex_list->lex;
 	while (tmp)
 	{
 		a = tmp->content;
 		if (tmp->next)
 			b = tmp->next->content;
+		if (i == 0 && !b && ((a[0] == '<') || (a[0] == '>')))
+			return (print_error());
 		if ((a[0] == '|' && !a[1]) && i == 0)
 			return (print_error());
 		else if ((a[0] == '>' && !a[1]) && !b)
@@ -75,13 +74,24 @@ int	quote_len1(char *data)
 {
 	int	j;
 	int	i;
+	int	a;
 
 	i = 0;
 	j = 0;
 	while (data[i])
 	{
 		if (data[i] == '\"' || data[i] == '\'')
+		{
 			j++;
+			a = data[i++];
+			while (data[i] && data[i] != a)
+			{
+				i++;
+			}
+			if (!data[i])
+				break ;
+			j++;
+		}
 		i++;
 	}
 	return (j);
@@ -103,5 +113,5 @@ int	quote_check(char *data)
 
 int	check(void)
 {
-	return (cmd_is_valid(g_shell->lex_list));
+	return (cmd_is_valid(g_shell->lex_list, NULL, NULL));
 }

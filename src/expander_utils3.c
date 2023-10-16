@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:24:36 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/23 02:03:42 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:37:55 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

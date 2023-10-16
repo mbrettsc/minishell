@@ -95,7 +95,7 @@ void	exec_cd(t_parse *data)
 		{
 			change_old(str);
 			change_pwd(data);
-			g_shell->exec_status = 0;
+			g_shell->exec_status = 1;
 		}
 		else
 		{

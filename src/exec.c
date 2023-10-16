@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:23:06 by mbrettsc          #+#    #+#             */
-/*   Updated: 2023/07/20 20:41:01 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 18:14:39 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	multi_command(char **env, int x, t_list	*tmp)
 		data->pid = fork();
 		if (x++ == 0)
 			data->control = 1;
-		if (data->pid <= 0)
+		if (data->pid == 0)
 			run_command(env, tmp, fd, 2);
 		_multi_command(&data, &tmp);
 		if (fd[4] && fd[5])

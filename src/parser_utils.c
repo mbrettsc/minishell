@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 17:30:52 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 17:19:07 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/13 23:17:28 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ void	get_text(t_parse **parse, char *str, int j, int a)
 	tmp = malloc(sizeof(char) * (size + 1));
 	while (str[i])
 	{
-		if (str[i] == '\"' || str[i] == '\'')
-			a = str[i++];
 		while (str[i] != a && str[i])
 		{
 			tmp[k] = str[i];

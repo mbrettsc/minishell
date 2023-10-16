@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 23:36:01 by mbrettsc          #+#    #+#             */
-/*   Updated: 2023/07/23 01:47:07 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/13 20:29:22 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*cmd_build(char *cmd)
 	int	size;
 
 	i = 0;
-	len = quote_len(cmd);
+	len = quote_len1(cmd);
 	size = ft_strlen(cmd);
 	while (i < size)
 	{

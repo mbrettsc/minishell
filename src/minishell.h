@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:17:18 by mbrettsc          #+#    #+#             */
-/*   Updated: 2023/07/23 02:03:10 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 14:17:28 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define MINISHELL_H
 
 # include "../libft/libft.h"
+# include <stdio.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 
 # define EXEC 0
 # define HEREDOC 1
@@ -72,8 +75,11 @@ char		*quote_control(char *tmp);
 char		*set_build(char *str);
 char		*before_dollar(char *tmp);
 char		*_search_path(void);
+char		*get_home(void);
+char		**get_args(t_parse *data, t_list *tmp);
+char		*ft_strjoin2(char *s1, const char *s2);
 int			ft_ultimatestrcmp(char *key, char *tmp, int i);
-int			quote_len(char *data);
+int			quote_len1(char *data);
 int			check(void);
 int			is_builtin(t_list *tmp);
 int			single_or_multi_command(void);
@@ -83,6 +89,9 @@ int			create_in_files(t_parse *data3, t_list *tmp3);
 int			quote_check(char *data);
 int			print_error(void);
 int			create_files(void);
+int			is_space(char *cmd);
+int			*create_pipe(void);
+int			*create_pipe(void);
 void		signals(int sig);
 void		signals_control(void);
 void		free_str1(char *str1, int flag);
@@ -107,7 +116,7 @@ void		free_lexer(void);
 void		free_text(char **text);
 void		free_(void);
 void		erase_after(char *tmp, t_list *data, int i);
-void		free_tmp_tmp2(char *tmp, char *tmp2);
+void		free_tmp_tmp2(char *tmp, char *tmp2, char *tmp3);
 void		ft_tilde_build1(t_list *data, char *key, char *tmp);
 void		ft_tilde_build2(t_list *data, char *str);
 void		get_after_num(char *tmp, t_list *data, int i);
@@ -131,14 +140,11 @@ void		exec_pwd(t_parse *data);
 void		exec_cd(t_parse *data);
 void		create_dup(t_list *data1, int *fd, int fd_index);
 void		clear_pipe(int *fd);
-int			*create_pipe(void);
 void		switch_pipe(int **fd);
 void		wait_all(void);
 void		execute_builtin_command(t_list *tmp, int *fd, int fd_index);
 void		exec_others(t_list *data, char **env, int *fd, int fd_index);
-char		*get_home(void);
-char		**get_args(t_parse *data, t_list *tmp);
 void		execve_child_free(char **str);
-int			*create_pipe(void);
+void		get_env_utils(t_list **data, char *tmp, char *tmp2);
 
 #endif

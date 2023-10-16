@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:24:14 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 01:00:00 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:23:33 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <stdlib.h>
 
-void	free_tmp_tmp2(char *tmp, char *tmp2)
+void	free_tmp_tmp2(char *tmp, char *tmp2, char *tmp3)
 {
 	free(tmp);
 	free(tmp2);
+	free(tmp3);
 }
 
 void	ft_tilde_build1(t_list *data, char *key, char *tmp)

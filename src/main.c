@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:07:54 by mbrettsc          #+#    #+#             */
-/*   Updated: 2023/07/20 01:09:55 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:36:19 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	shell_init(t_shell **shell)
 void	get_readline(void)
 {
 	g_shell->cmd = readline("minishell-$ ");
+	if (g_shell->cmd && !is_space(g_shell->cmd))
+	{
+		free(g_shell->cmd);
+		get_readline();
+	}
 	if (!g_shell->cmd)
 	{
 		free_loop(0);

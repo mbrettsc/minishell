@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_builtin3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 19:38:42 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 01:04:00 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/16 14:31:48 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	exec_pwd(t_parse *data)
 {
-	char	cwd[1024];	
+	char	cwd[1024];
 
 	if (getcwd(cwd, sizeof(cwd)) != NULL)
 	{

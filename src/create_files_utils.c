@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_files_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 17:31:14 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 18:43:37 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 14:17:46 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

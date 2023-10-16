@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   welcome_to_parse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 17:30:38 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 17:19:24 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:36:51 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	parse_if(t_list *new, t_parse **parse)
 
 void	parse_else_if(t_parse **parse, t_list *new, char *str, int *j)
 {
-	get_text(&(*parse), str, *j, 2); 
+	get_text(&(*parse), str, *j, 2);
 	*j += 1;
 	if (!new->next)
 	{
@@ -64,7 +64,7 @@ void	welcome_to_parse(t_list	*node, int i, int j, int flag)
 					&& str[1] != '>') && str[0] != '>'
 				&& (str[0] != '<' && str[1] != '<') && str[0] != '<'))
 			flag = (parse_else_if(&parse, new, str, &j), 1);
-		else 
+		else
 		{
 			if (tokenize_type(&parse, str), flag == 0)
 				parse->text = (free(parse->text), NULL);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils4.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:31:41 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/23 16:26:14 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:37:44 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_ultimatestrcmp(char *key, char *tmp, int i)
 		while (tmp[i] == key[j])
 		{
 			i++;
-			j++; 
+			j++;
 			if (!key[j])
 			{
 				if (!ft_isalnum(tmp[i]))

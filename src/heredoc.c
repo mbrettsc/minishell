@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:23:11 by mbrettsc          #+#    #+#             */
-/*   Updated: 2023/07/20 16:05:16 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:37:06 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	get_var(int *fd)
 		g_shell->heredoc = NULL;
 		return ;
 	}
-	g_shell->heredoc = ft_calloc(sizeof(char), 2); 
+	g_shell->heredoc = ft_calloc(sizeof(char), 2);
 	if (!g_shell->heredoc)
 	{
 		free(a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 19:52:18 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 20:46:43 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:29:40 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	execute_builtin_command(t_list *tmp, int *fd, int fd_index)
 		exec_echo(data);
 	if (ft_strcmp(data->cmd, "cd") == 0)
 		exec_cd(data);
-	if ((ft_strcmp(data->cmd, "pwd") == 0) 
+	if ((ft_strcmp(data->cmd, "pwd") == 0)
 		|| (ft_strcmp(data->cmd, "PWD") == 0))
 		exec_pwd(data);
 	if (ft_strcmp(data->cmd, "export") == 0)

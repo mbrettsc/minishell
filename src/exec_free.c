@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exec_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 19:28:18 by uakkan            #+#    #+#             */
-/*   Updated: 2023/07/20 00:59:35 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/13 13:16:15 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <readline/readline.h>
 #include <stdlib.h>
 
 void	_free_env(t_list *tmp2)

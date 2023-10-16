@@ -1,10 +1,10 @@
-USERNAME = mbrettsc
+USERNAME = uakkan
 NAME = minishell
-CFLAGS = $(INCLUDE) -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 LIBFT = libft
 LIBFTM = libft/libft.a
-INCLUDE = -IInclude/ -I/Users/$(USERNAME)/homebrew/Cellar/readline/8.2.1/include
-CC = gcc
+INCLUDE = -L /usr/include -lreadline
+CC = gcc -g
 
 SRC = src/expander_utils.c src/lexer_utils.c src/run_builtin3.c src/run_builtin2.c \
       src/create_files.c src/expander_utils2.c src/main.c src/run_execve.c \
@@ -32,7 +32,7 @@ $(NAME):  $(OBJDIR) $(OBJ)
 	@echo "Building Minishell"
 	@make bonus -C $(LIBFT)
 	@echo "Compiling Files..."
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFTM) -lreadline -L/Users/$(USERNAME)/homebrew/Cellar/readline/8.2.1/lib -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFTM) $(INCLUDE) -o $(NAME)
 
 $(OBJDIR)/%.o: src/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@

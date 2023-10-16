@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: mbrettsc <mbrettsc@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:45:04 by mbrettsc          #+#    #+#             */
-/*   Updated: 2023/07/23 01:45:11 by uakkan           ###   ########.fr       */
+/*   Updated: 2023/10/15 13:38:10 by mbrettsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	check_env(t_list *data, char *tmp, int i)
 void	_get_env_to_lexlist(char **tmp, int i, t_list **data)
 {
 	free(*tmp);
-	(*tmp) = ft_strdup((*data)->content);
+	*tmp = ft_strdup((*data)->content);
 	if (((*tmp)[i] == '~') && ((*tmp)[0] != '\'' || (*tmp)[0] != '\"')
 		&& ((*tmp)[i + 1] == '/' || !(*tmp)[i + 1]))
 	{
@@ -110,8 +110,7 @@ void	get_env_to_lexlist(t_lexer **lex_list)
 			}
 			i++;
 		}
-		free_tmp_tmp2(tmp, tmp2);
-		(data) = (data)->next;
+		get_env_utils(&data, tmp, tmp2);
 	}
 }
 
