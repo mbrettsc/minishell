@@ -1,4 +1,3 @@
-USERNAME = uakkan
 NAME = minishell
 CFLAGS = -Wall -Werror -Wextra
 LIBFT = libft
