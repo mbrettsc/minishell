@@ -53,12 +53,9 @@ void	get_var(int *fd)
 		g_shell->heredoc = NULL;
 		return ;
 	}
+	if (g_shell->heredoc)
+		free(g_shell->heredoc);
 	g_shell->heredoc = ft_calloc(sizeof(char), 2);
-	if (!g_shell->heredoc)
-	{
-		free(a);
-		return ;
-	}
 	while (read(fd[0], a, 1))
 	{
 		g_shell->heredoc = add_char(g_shell->heredoc, *a);
