@@ -16,4 +16,4 @@ Minishell is a project aimed at creating a simple Unix shell. Through this proje
 - 2. **Build the project**:
 	-  ```make ``` 
 - ## Usage
--  Run the shell:  ```bash ./minishell```
+-  Run the shell:  ```./minishell```
